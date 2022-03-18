@@ -64,7 +64,7 @@ Proceed to describe how to install / setup one's local environment / get started
 git clone https://github.com/parttimehacker/diyha-oled.git
 cd diyha-oled
 ```
-<img align="left" src="![Screenshot](oledtree.png)">
+<img align="left" src="oledtree.png">
 
 - Copy the python files to the relevant applications
 ```
