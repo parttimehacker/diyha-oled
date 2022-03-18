@@ -65,7 +65,7 @@ git clone https://github.com/parttimehacker/diyha-oled.git
 cd diyha-oled
 ```
 <div align="left">
-    <img src="oledtree.png" width="400px"</img> 
+    <img src="oledtree.png" width="200px"</img> 
 </div>
 
 - Copy the python files to the relevant applications
