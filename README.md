@@ -72,54 +72,40 @@ sudo pip3 install -r requirements.txt
 ```
 
 ## Usage
-How does one go about using it?
-Provide various use cases and code examples here.
-
-- Example from the **asset.py** DIYHA application
+You need to decide whether you want to manually run the application or have it started as part of the boot process. I recommend making a **Raspbian OS systemd service**, so the application starts when rebooted or controled by **systemctl** commands. The **systemd_script.sh** creates a admin directory in **/usr/local directory**. The application files are then copied to this new directory. The application will also require a log file in **/var/log directory** called admin.log
+### Manual or Command Prompt
+To manually run the application enter the following command (sudo may be required on your system)
 ```
-from pkg_classes.whoview import WhoView
+sudo python3 oled.py --mq MQTTBROKERSERVER --lt LOCATIONTOPIC -ws DJANGOWEBSERVER
 ```
-- initialization of the view controller
+- MQTTBROKERSERVER is the host name or IP address of MQTT broker. I use the Open Source Mosquitto broker and bridge.
+- LOCATIONTOPIC is the MQTT topic name for the location of the server. 
+- DJANGOWEBSERVERis the host name or IP address of RESTful API web server. I use django infrastructure
+### Raspbian systemd Service
+First edit the **clock systemd service** and replace the MQTT broker and room values with their host names or IP addresse. A systemd install script will move files and enable the applicaiton via **systemctl** commands.
+- Run the script and provide the application name **admin** to setup systemd (the script uses a file name argument to create the service). 
 ```
-# get the command line arguements
-CONFIG = ConfigModel(LOGGING_FILE)
-
-# setup web server updates
-DJANGO = DjangoModel(LOGGING_FILE)
-DJANGO.set_django_urls(CONFIG.get_django_api_url())
-
-# Set up who message handler from MQTT broker and wait for client.
-WHO = WhoView(LOGGING_FILE, DJANGO)
+vi oled.service
+./systemd_script.sh oled
 ```
-- provide MQTT client
+This script also adds four aliases to the **.bash_aliases** in your home directory for convenience.
 ```
-WHO.set_client(CLIENT)
+sudo systemctl start oled
+sudo systemctl stop oled
+sudo systemctl restart oled
+sudo systemctl -l status oled
 ```
-- process diy/system/who topic subscription
+- You will need to login or reload the **.bashrc** script to enable the alias entries. For example:
 ```
-client.subscribe("diy/system/who", 1)
+cd
+source .bashrc
 ```
-- handling diy/system/who messages
-```
-TOPIC_DISPATCH_DICTIONARY = {
-    "diy/system/test":
-        {"method": system_message},
-    "diy/system/who":
-        {"method": system_message}
-}
-
-def system_message(client, msg):
-    """ Log and process system messages. """
-    # pylint: disable=unused-argument
-    LOGGER.info(msg.topic + " " + msg.payload.decode('utf-8'))
-    if msg.topic == 'diy/system/test':
-        TEST.on_message(msg.payload)
-    elif msg.topic == 'diy/system/who':
-        if msg.payload == b'ON':
-            WHO.turn_on()
-        else:
-            WHO.turn_off()
-```
+### MQTT Topics and Messages
+The application subscribes to multiple MQTT topics and publishes initialization messages. Three are handled locally and the rest are sent to the web server's API for processing.
+- Two topics **diy/system/fire** and **diy/system/panic** are special cases and also email alerts
+- The **diy/system/who** sends local server information to the web server's API. 
+- The reset of the MQTT messages are translated to HTTP messages to the web server's API for processing.
+- System message are initialized at startup and legacy messages are sent to a older running applications.
 
 ## Implementation Status
 ![Status](https://progress-bar.dev/80/?title=progress)
