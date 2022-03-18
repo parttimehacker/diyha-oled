@@ -23,7 +23,6 @@ Adaftruit's OLED software running a variety of information displays. The device 
 * [Contact](#contact)
 <!-- * [License](#license) -->
 
-
 ## General Information
 - Provide general information about your project here.
   - This is one of several classes used in my home automation system (**DIYHA**). I've used OOP and MVC concepts in my DIYHA system. 
@@ -36,7 +35,10 @@ Adaftruit's OLED software running a variety of information displays. The device 
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
 ## Technologies Used
-- python - version 3.7.3
+- python=3.7.3
+- adafruit-circuitpython-ssd1306=2.12.4
+- Adafruit-Blinka=7.1.0
+- paho-mqt=1.6.1
 
 ## Features
 List the ready features here:
