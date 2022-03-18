@@ -1,7 +1,7 @@
 # diyha-oled
-Information display containing server information and location environment data.
+Information display containing server information and location specific environment data.
 ## Description
-Adaftruit's OLED softwar running a variety of displays. The device is used as a simple dynamic display controlled by MQTT subscribed messages. The Python application responds to specific information based on application topics, e.g. MQTT Broker subscribe/publish. This application is one of several general classes in my *do it yourself home automation system* (**DIYHA**). Each python DIYHA application is hosted on a Raspberry Pi server and will respond to a variety of subscribed topic and report on their status or application specific test data. 
+Adaftruit's OLED software running a variety of information displays. The device is used as a simple dynamic display controlled by MQTT subscribed messages. The Python application responds to specific information based on application topics, e.g. MQTT Broker subscribe/publish. This application is one of several general classes in my *do it yourself home automation system* (**DIYHA**). Each python DIYHA application is hosted on a Raspberry Pi server and will respond to a variety of subscribed topic and report on their status or application specific test data. 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django)
@@ -28,7 +28,7 @@ Adaftruit's OLED softwar running a variety of displays. The device is used as a 
 - Provide general information about your project here.
   - This is one of several classes used in my home automation system (**DIYHA**). I've used OOP and MVC concepts in my DIYHA system. 
 - What problem does it (intend to) solve?
-  - I wanted to isolate the diganostic status into a single class. The main python application subscribes to a **diy/system/test** topic and responds by turning on or off clock specific functions.
+  - I wanted to isolate the status and diganostic messages into a single class. The main python application subscribes to a **diy/system/who** topic and responds by turning on or off stauts updates.
 - What is the purpose of your project?
   - My home automation system contains environment sensors, motion sensors, LED clocks, light switches, emergency sirens, a django web server, interfaces to Adafruit.io and a mosquitto MQTT broker.
 - Why did you undertake it?
@@ -59,16 +59,12 @@ What are the project requirements/dependencies? Where are they listed? A require
 
 Proceed to describe how to install / setup one's local environment / get started with the project.
 ```
-git clone https://github.com/parttimehacker/whoview.git
-cd whoview
+git clone https://github.com/parttimehacker/diyha-oled.git
+cd diyha-oled
 ```
 - Copy the python files to the relevant applications
 ```
-cp *.py ../asset/pkg_classes
-cp *.py ../clock/pkg_classes
-cp *.py ../server/pkg_classes
-cp *.py ../switch/pkg_classes
-cp *.py ../siren/pkg_classes
+sudo pip3 install -r requirements.txt
 ```
 
 ## Usage
@@ -76,20 +72,26 @@ How does one go about using it?
 Provide various use cases and code examples here.
 
 ```
-├── asset.py
-├── asset.service
+diyha-oled
+├── examples
+│   ├── ex-1.py
+│   └── ex-2.py
+├── import_script.sh
 ├── LICENSE
 ├── logging.ini
+├── oled.py
 ├── pkg_classes
 │   ├── configmodel.py
-│   ├── djangoview.py
-│   ├── statuscontroller.py
-│   ├── testview.py
+│   ├── djangomodel.py
+│   ├── __init__.py
+│   ├── timedevents.py
 │   ├── topicmodel.py
 │   └── whoview.py
 ├── README.md
 ├── requirements.txt
+├── sensor.service
 ├── systemd_script.sh
+└── update_script.sh
 ```
 - Example from the **asset.py** DIYHA application
 ```
