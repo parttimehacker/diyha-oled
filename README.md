@@ -57,9 +57,7 @@ Not applicable.
 
 ## Setup
 What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
-- git clone the repository and then copy the python file to the **pkg_classes** directory of an relevant DIYHA applicattions on the server.
-
-Proceed to describe how to install / setup one's local environment / get started with the project.
+- git clone the repository 
 ```
 git clone https://github.com/parttimehacker/diyha-oled.git
 cd diyha-oled
@@ -68,7 +66,7 @@ cd diyha-oled
     <img src="oledtree.png" width="200px"</img> 
 </div>
 
-- Copy the python files to the relevant applications
+- install dependencies
 ```
 sudo pip3 install -r requirements.txt
 ```
