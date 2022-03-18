@@ -64,6 +64,8 @@ Proceed to describe how to install / setup one's local environment / get started
 git clone https://github.com/parttimehacker/diyha-oled.git
 cd diyha-oled
 ```
+<img align="left" src="![Screenshot](oledtree.png)">
+
 - Copy the python files to the relevant applications
 ```
 sudo pip3 install -r requirements.txt
@@ -72,32 +74,7 @@ sudo pip3 install -r requirements.txt
 ## Usage
 How does one go about using it?
 Provide various use cases and code examples here.
-```
-![Screenshot](oledtree.png)
-```
 
-```
-diyha-oled
-├── examples
-│   ├── ex-1.py
-│   └── ex-2.py
-├── import_script.sh
-├── LICENSE
-├── logging.ini
-├── oled.py
-├── pkg_classes
-│   ├── configmodel.py
-│   ├── djangomodel.py
-│   ├── __init__.py
-│   ├── timedevents.py
-│   ├── topicmodel.py
-│   └── whoview.py
-├── README.md
-├── requirements.txt
-├── sensor.service
-├── systemd_script.sh
-└── update_script.sh
-```
 - Example from the **asset.py** DIYHA application
 ```
 from pkg_classes.whoview import WhoView
