@@ -72,6 +72,7 @@ sudo pip3 install -r requirements.txt
 ## Usage
 How does one go about using it?
 Provide various use cases and code examples here.
+![Screenshot](oledtree.png)
 
 ```
 diyha-oled
