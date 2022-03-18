@@ -1,8 +1,8 @@
 [Unit]
-Description=Do It Yourself Home Automation Clock and Security 
+Description=Do It Yourself Home Automation SSD1306 OLED display process
 After=multi-user.target
 [Service]
 Type=idle
-ExecStart=/usr/bin/python3 /usr/local/sensor/sensor.py --mqtt chuck.local --location diy/main/garage --webserver marion.local
+ExecStart=/usr/bin/python3 /usr/local/oled/oled.py --mq MQTTBROKERSERVER --lt LOCATIONTOPIC --ws djangowebserver
 [Install]
 WantedBy=multi-user.target
