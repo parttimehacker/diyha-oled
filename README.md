@@ -80,7 +80,7 @@ sudo python3 oled.py --mq MQTTBROKERSERVER --lt LOCATIONTOPIC -ws DJANGOWEBSERVE
 ```
 - MQTTBROKERSERVER is the host name or IP address of MQTT broker. I use the Open Source Mosquitto broker and bridge.
 - LOCATIONTOPIC is the MQTT topic name for the location of the server. 
-- DJANGOWEBSERVERis the host name or IP address of RESTful API web server. I use django infrastructure
+- DJANGOWEBSERVERis the host name or IP address of RESTful API web server. I use django to host my local DIYHAS web site.
 ### Raspbian systemd Service
 First edit the **clock systemd service** and replace the MQTT broker and room values with their host names or IP addresse. A systemd install script will move files and enable the applicaiton via **systemctl** commands.
 - Run the script and provide the application name **oled** to setup systemd (the script uses a file name argument to create the service). 
