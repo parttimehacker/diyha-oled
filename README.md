@@ -1,7 +1,7 @@
 # diyha-oled
 Information display containing server information and location specific environment data.
 ## Description
-This is a python application on a Raspberry Pi leveraging Adaftruit's OLED library to control a SSD1306 OLED device. The OLED display is used as a simple dynamic display controlled by MQTT subscribed messages. The Python application responds to specific information based on application topics, e.g. MQTT Broker subscribe/publish. This application is one of several general classes in my *do it yourself home automation system* (**DIYHA**). Each python DIYHA application is hosted on a Raspberry Pi server and will respond to a variety of subscribed topic and report on their status or application specific test data. 
+This is a python application on a Raspberry Pi leveraging Adaftruit's OLED library to control a SSD1306 OLED device. The OLED display is used as a simple dynamic display controlled by MQTT subscribed messages. The Python application responds to specific information based on application topics, e.g. MQTT Broker subscribe/publish. This application is one of several in my *do it yourself home automation system* (**DIYHA**). Each python DIYHA application is hosted on a Raspberry Pi server and will respond to a variety of subscribed topic and report on their status or application specific test data. 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django)
