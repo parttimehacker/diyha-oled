@@ -72,7 +72,7 @@ sudo pip3 install -r requirements.txt
 ```
 
 ## Usage
-You need to decide whether you want to manually run the application or have it started as part of the boot process. I recommend making a **Raspbian OS systemd service**, so the application starts when rebooted or controled by **systemctl** commands. The **systemd_script.sh** creates a admin directory in **/usr/local directory**. The application files are then copied to this new directory. The application will also require a log file in **/var/log directory** called admin.log
+You need to decide whether you want to manually run the application or have it started as part of the boot process. I recommend making a **Raspbian OS systemd service**, so the application starts when rebooted or controled by **systemctl** commands. The **systemd_script.sh** creates a admin directory in **/usr/local directory**. The application files are then copied to this new directory. The application will also require a log file in **/var/log directory** named oled.log.
 ### Manual or Command Prompt
 To manually run the application enter the following command (sudo may be required on your system)
 ```
@@ -83,7 +83,7 @@ sudo python3 oled.py --mq MQTTBROKERSERVER --lt LOCATIONTOPIC -ws DJANGOWEBSERVE
 - DJANGOWEBSERVERis the host name or IP address of RESTful API web server. I use django infrastructure
 ### Raspbian systemd Service
 First edit the **clock systemd service** and replace the MQTT broker and room values with their host names or IP addresse. A systemd install script will move files and enable the applicaiton via **systemctl** commands.
-- Run the script and provide the application name **admin** to setup systemd (the script uses a file name argument to create the service). 
+- Run the script and provide the application name **oled** to setup systemd (the script uses a file name argument to create the service). 
 ```
 vi oled.service
 ./systemd_script.sh oled
