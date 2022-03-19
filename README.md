@@ -1,7 +1,7 @@
 # diyha-oled
 Information display containing server information and location specific environment data.
 ## Description
-Adaftruit's OLED software running a variety of information displays. The device is used as a simple dynamic display controlled by MQTT subscribed messages. The Python application responds to specific information based on application topics, e.g. MQTT Broker subscribe/publish. This application is one of several general classes in my *do it yourself home automation system* (**DIYHA**). Each python DIYHA application is hosted on a Raspberry Pi server and will respond to a variety of subscribed topic and report on their status or application specific test data. 
+Adaftruit's OLED software running SSD1306 OLED device. The OLED display is used as a simple dynamic display controlled by MQTT subscribed messages. The Python application responds to specific information based on application topics, e.g. MQTT Broker subscribe/publish. This application is one of several general classes in my *do it yourself home automation system* (**DIYHA**). Each python DIYHA application is hosted on a Raspberry Pi server and will respond to a variety of subscribed topic and report on their status or application specific test data. 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django)
@@ -25,9 +25,9 @@ Adaftruit's OLED software running a variety of information displays. The device 
 
 ## General Information
 - Provide general information about your project here.
-  - This is one of several classes used in my home automation system (**DIYHA**). I've used OOP and MVC concepts in my DIYHA system. 
+  - This is one of several Python processes used in my home automation system (**DIYHA**). I've used OOP, MVC, and MTV concepts in my DIYHA system. 
 - What problem does it (intend to) solve?
-  - I wanted to isolate the status and diganostic messages into a single class. The main python application subscribes to a **diy/system/who** topic and responds by turning on or off stauts updates.
+  - I wanted to isolate the status and diganostic messages into a single class. The main python application subscribes to a **diy/system/who** topic and responds by turning on or off status updates.
 - What is the purpose of your project?
   - My home automation system contains environment sensors, motion sensors, LED clocks, light switches, emergency sirens, a django web server, interfaces to Adafruit.io and a mosquitto MQTT broker.
 - Why did you undertake it?
@@ -43,7 +43,7 @@ Adaftruit's OLED software running a variety of information displays. The device 
 ## Features
 List the ready features here:
 - Handles the basic **diy/system/who** function
-- Reports on status and diagnostic information by LOGGING application specific informatino message.
+- Reports on status and diagnostic information on paged flipped OLED displays.
 - Code passes pylint with a score of 10.0
 
 ## Screenshots
